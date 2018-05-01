@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>中国大学MOOC(慕课)</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_631396_t4krfqhryk8x5hfr.css">
+  <link rel="stylesheet" href="/css/mooc.css">
+  <link rel="stylesheet" href="/css/log_reg.css">
+</head>
+<body>
+  <div id="wrapper" class="stu_regist log_reg">
+    <%-include('include/header')%>
+    <div id="l_login" class="o_f">
+        <div class="l_login_box">
+            <div class="l_lt">
+                <h1>中国大学MOOC(慕课)</h1>
+                <span>分享最酷的知识，获取更大的学问</span>
+                <p></p>
+            </div>
+            <div class="l_rt">
+                <p>欢迎注册</p>
+                <div id="l_tabs">
+                    <a class="tab_link now" href="#">邮箱</a>
+                    <a class="tab_link" href="#">手机号</a>
+                </div>
+                <div class="tab_icons">
+                    <div class="login_main_area now">
+                        <form action="" method="post" id="reg_main_form">
+                            <div class="l_label">
+                                <span class="l_ic_1"></span><input id="regEmail" type="email" placeholder="邮箱信息" autofocus/>
+                            </div>
+                            <div class="l_label">
+                                <span class="l_ic_2"></span><input id="regSchool" type="text" placeholder="就读院校"/>
+                            </div>
+                            <div class="l_label">
+                                <span class="l_ic_3"></span><input id="regPwd" type="password" placeholder="密码"/>
+                            </div>
+                            <div class="l_label">
+                                <span class="l_ic_3"></span><input id="regRepeatPwd"type="password" placeholder="再次输入密码"/>
+                            </div>
+                            <span>已有爱学记账号？</span><a href="/login">马上登录</a>
+                            <div>
+                                <input type="button" value="注册" id="main_regBtn" />
+                            </div>
+                            <div class="l_cooperate">
+                                <span>合作网站登录 :</span>
+                                <a class=" l_cpqq" href="#"></a>
+                                <a class="l_cpsina" href="#"></a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="login_tell_area">
+                        <form action="" method="post" id="reg_tell_form">
+                            <div class="l_label">
+                                <span class="l_ic_4"></span><input type="tel" id="telNumber" placeholder="手机号码" autofocus/>
+                            </div>
+                            <div class="l_label">
+                                <span class="l_ic_2"></span><input type="text" id="telSchool" placeholder="就读院校"/>
+                            </div>
+                            <div class="l_label">
+                                <span class="l_ic_3"></span><input type="password" id="telPwd" placeholder="密码"/>
+                            </div>
+                            <div >
+                                <input type="text" placeholder="验证码" id="l_valinum"/>
+                                <input type="button" value="获取验证码" id="l_validate"/>
+                            </div>
+                            <span>已有爱学记账号？</span><a href="/login">马上登录</a>
+                            <div>
+                                <input type="button" value="注册" id="tel_regBtn" />
+                            </div>
+                            <div class="l_cooperate">
+                                <span>合作网站登录 :</span>
+                                <a class="l_cpqq" href="#"></a>
+                                <a class="l_cpsina" href="#"></a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <%-include('include/footer')%>
+  </div>
+  <script src="js/index.js"></script>
+</body>
+</html>

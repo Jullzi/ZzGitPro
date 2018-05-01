@@ -3999,17 +3999,153 @@ module.exports = __webpack_require__(126);
 
 __webpack_require__(127);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+// tab栏
+var moreCour = document.getElementsByClassName('more_cour');
+var courDiv = document.querySelectorAll('.cour_content');
+var courAll = document.querySelectorAll('.cour_all')[0];
 
-var Test = function Test() {
-  _classCallCheck(this, Test);
-
-  this.a = "hello world";
+var _loop = function _loop(j) {
+  document.onmouseover = function (e) {
+    if (e.target.className == "more_cour") {
+      e.target.nextElementSibling.style.display = "block";
+    } else if (e.target.className == "cour_content") {
+      e.target.style.display = "block";
+    } else if (e.target.className == "c_a") {
+      e.target.parentElement.style.display = "block";
+    } else {
+      courDiv[j].style.display = "none";
+    }
+  };
 };
 
-var test = new Test();
+for (var j = 0; j < moreCour.length; j++) {
+  _loop(j);
+}
 
-document.body.innerHTML = test.a;
+courAll.onmouseover = function () {
+  this.children[1].style.display = "block";
+};
+courAll.onmouseout = function () {
+  this.children[1].style.display = "none";
+};
+// slideshow
+var prev = document.getElementsByClassName('prev')[0];
+var next = document.getElementsByClassName('next')[0];
+
+var banner = document.getElementsByClassName('banner')[0];
+var imgLis = banner.querySelectorAll('li');
+var controls = document.getElementsByClassName('controls')[0];
+var spans = controls.querySelectorAll('span');
+var hides = banner.querySelectorAll('.hide');
+var banbox = document.getElementsByClassName('banner_box')[0];
+var index = 0;
+
+// background-color
+var bgColor = ['#181e38', '#ffd600', '#452eb4', '#ff998d', '#171711', '#121b73'];
+imgLis[0].style.display = "block";
+
+var timer = setInterval(play, 3000);
+
+for (var i = 0; i < hides.length; i++) {
+  hides[i].style.display = "none";
+}
+
+banner.onmouseover = function () {
+  for (var _i = 0; _i < hides.length; _i++) {
+    hides[_i].style.display = "block";
+  }
+  clearInterval(timer);
+};
+banner.onmouseout = function () {
+  for (var _i2 = 0; _i2 < hides.length; _i2++) {
+    hides[_i2].style.display = "none";
+  }
+  timer = setInterval(play, 3000);
+};
+prev.onclick = function () {
+  if (index > 0) {
+    imgLis[index].style.display = "none";
+    imgLis[index - 1].style.display = "block";
+    index--;
+  } else {
+    imgLis[index].style.display = "none";
+    index = imgLis.length - 1;
+    imgLis[index].style.display = "block";
+  }
+  now(index);
+};
+
+next.onclick = function () {
+  console.log(index);
+  if (index < imgLis.length - 1) {
+    imgLis[index].style.display = "none";
+    imgLis[index + 1].style.display = "block";
+    index++;
+  } else {
+    index = 0;
+    imgLis[index].style.display = "block";
+  }
+  now(index);
+};
+
+function play() {
+  if (index >= 0 && index < spans.length - 1) {
+    index++;
+  } else {
+    index = 0;
+  }
+  now(index);
+}
+
+function now(index) {
+  var _loop2 = function _loop2(_i3) {
+    spans[_i3].className = '';
+    spans[index].className = "now";
+    imgLis[_i3].style.display = "none";
+    imgLis[index].style.display = "block";
+    banbox.style.background = bgColor[index];
+    spans[_i3].onmouseover = function () {
+      for (var j = 0; j < spans.length; j++) {
+        spans[j].className = '';
+        imgLis[j].style.display = "none";
+      }
+      this.className = "now";
+      imgLis[_i3].style.display = "block";
+      banbox.style.background = bgColor[_i3];
+    };
+  };
+
+  for (var _i3 = 0; _i3 < spans.length; _i3++) {
+    _loop2(_i3);
+  }
+}
+
+// aside more
+
+var more = document.getElementsByClassName('more')[0];
+var aside = document.querySelectorAll('aside')[0];
+
+more.onmouseover = function () {
+  this.children[0].innerHTML = "<i class='iconfont icon-neo'></i>理学";
+  this.children[0].href = "javascript:void(0)";
+  this.parentElement.parentElement.style.height = "546px";
+};
+
+more.onmouseout = function () {
+  more.children[0].innerHTML = "<i class='iconfont icon-more2'></i>更多";
+  more.children[0].href = "#";
+  this.parentElement.parentElement.style.height = "380px";
+};
+
+// scroll top
+window.onscroll = function () {
+  var fixedTop = document.getElementsByClassName('fixed_top')[0];
+  if (document.documentElement.scrollTop > 100) {
+    fixedTop.style.display = "block";
+  } else {
+    fixedTop.style.display = "none";
+  }
+};
 
 /***/ }),
 /* 127 */

@@ -178,4 +178,7 @@ button[type=button]:focus,button[type=submit]:focus,
 input[type=reset]:focus{
 	outline:none;
 }
+div[contenteditable=true]:focus{
+  outline: none;
+}
 .ch{display: none;}

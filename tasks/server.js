@@ -8,7 +8,7 @@ gulp.task('serve',(cb)=>{
 
   var server = liveserver.new(['--harmony','server/bin/www']);
   server.start();
-
+  
   gulp.watch(['server/public/**/*.js','server/views/**/*.ejs'],function(file){
     server.notify.apply(server,[file]);
   })
